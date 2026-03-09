@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medical_health_app/screen/login_screen.dart';
+import 'package:medical_health_app/screen/navbar_roots.dart';
 import 'package:medical_health_app/screen/signup_screen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -89,10 +90,10 @@ class _SignupScreenState extends State<SignupScreen> {
                     borderRadius: BorderRadius.circular(10),
                     child: InkWell(
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => LoginScreen()),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => NavbarRoots()),
+                        );
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
