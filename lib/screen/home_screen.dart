@@ -108,8 +108,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 25,),
-            
+            SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Text(
+                "What are your symptoms?",
+                style: TextStyle(fontSize: 23, fontWeight: FontWeight.w500, color: Colors.black54),
+              ),
+            ),
+            SizedBox(
+              height: 70,
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: symptoms.length,
+                itemBuilder: (context, index) {
+                  return Container(margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15));
+                },
+              ),
+            ),
           ],
         ),
       ),
