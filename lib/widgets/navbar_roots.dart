@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medical_health_app/screen/home_screen.dart';
+import 'package:medical_health_app/screen/messages_screen.dart';
+import 'package:medical_health_app/screen/settings_screen.dart';
 
 class NavbarRoots extends StatefulWidget {
   const NavbarRoots({super.key});
@@ -11,7 +13,7 @@ class NavbarRoots extends StatefulWidget {
 
 class _NavbarRootsState extends State<NavbarRoots> {
   int selectedIndex = 0;
-  List<Widget> pages = [HomeScreen(), Container(), Container(), Container()];
+  List<Widget> pages = [HomeScreen(), MessagesScreen(), Container(), SettingsScreen()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

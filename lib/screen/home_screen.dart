@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medical_health_app/screen/appointment_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -160,7 +161,12 @@ class _HomeScreenState extends State<HomeScreen> {
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AppointmentScreen()),
+                    );
+                  },
                   child: Container(
                     margin: EdgeInsets.all(10),
                     padding: EdgeInsets.symmetric(vertical: 15),
