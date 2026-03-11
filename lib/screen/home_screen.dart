@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: CircleAvatar(
               radius: 30,
-              backgroundImage: AssetImage("assets/images/doctor1.jpg"),
+              backgroundImage: AssetImage("assets/images/doctor3.jpg"),
             ),
           ),
         ],
@@ -327,7 +327,7 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 100,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 3),
             itemCount: symptoms.length,
             itemBuilder: (context, index) {
               return Container(
@@ -404,10 +404,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         SizedBox(height: 15),
         SizedBox(
-          height: 220,
+          height: 200,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 4),
             itemCount: doctors.length,
             itemBuilder: (context, index) {
               return Container(
@@ -535,10 +535,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         SizedBox(height: 15),
         SizedBox(
-          height: 150,
+          height: 140,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 4),
             itemCount: articles.length,
             itemBuilder: (context, index) {
               return Container(
