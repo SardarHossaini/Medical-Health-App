@@ -7,97 +7,196 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        padding: EdgeInsets.all(10),
-        child: Column(
-          children: [
-            SizedBox(height: 15),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>))
-                },
-                child: Text("Skip", style: TextStyle(fontSize: 16, color: Color(0xFF7165D6))),
-              ),
-            ),
-            SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Image.asset("assets/images/doctors.png"),
-            ),
-            SizedBox(height: 40),
-            Text(
-              "Doctors Appointment",
-              style: TextStyle(
-                color: Color(0xFF7165D6),
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-                wordSpacing: 2,
-                letterSpacing: 1,
-              ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              "Appoint Your Doctors",
-              style: TextStyle(color: Colors.black54, fontSize: 18, fontWeight: FontWeight.w500),
-            ),
-            SizedBox(height: 60),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Material(
-                  color: Color(0xFF7165D6),
-                  borderRadius: BorderRadius.circular(10),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+    final size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      body: Container(
+        width: size.width,
+        height: size.height,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white,
+              Color(0xFFF5F5FF), // Light purple tint
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              // Skip button with better positioning
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        // Handle skip
+                      },
+                      style: TextButton.styleFrom(foregroundColor: Color(0xFF7165D6)),
                       child: Text(
-                        "Login",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        "Skip",
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                       ),
                     ),
-                  ),
+                  ],
                 ),
-                Material(
-                  color: Color(0xFF7165D6),
-                  borderRadius: BorderRadius.circular(10),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignupScreen()),
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-                      child: Text(
-                        "Sign up",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
+              ),
+
+              // Hero image with better styling
+              Expanded(
+                flex: 3,
+                child: Container(
+                  width: size.width * 0.8,
+                  child: Image.asset("assets/images/doctors.png", fit: BoxFit.contain),
+                ),
+              ),
+
+              // Text content with better spacing
+              Expanded(
+                flex: 2,
+                child: Container(
+                  width: size.width,
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Column(
+                    children: [
+                      // Main title with gradient effect
+                      ShaderMask(
+                        shaderCallback: (bounds) => LinearGradient(
+                          colors: [Color(0xFF7165D6), Color(0xFF9B8EFC)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ).createShader(bounds),
+                        child: Text(
+                          "MediCare",
+                          style: TextStyle(
+                            fontSize: 42,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            letterSpacing: 1.5,
+                          ),
                         ),
                       ),
-                    ),
+
+                      const SizedBox(height: 10),
+
+                      // Subtitle with better styling
+                      Text(
+                        "Your Health, Our Priority",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.black54,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.5,
+                        ),
+                      ),
+
+                      const SizedBox(height: 15),
+
+                      // Description with better readability
+                      Text(
+                        "Connect with top doctors, schedule appointments, and manage your health journey all in one place.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 14, color: Colors.grey[600], height: 1.5),
+                      ),
+
+                      const SizedBox(height: 40),
+
+                      // Buttons with improved design
+                      Row(
+                        children: [
+                          // Login Button
+                          Expanded(
+                            child: Container(
+                              height: 55,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [Color(0xFF7165D6), Color(0xFF9B8EFC)],
+                                ),
+                                borderRadius: BorderRadius.circular(15),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0xFF7165D6).withOpacity(0.3),
+                                    blurRadius: 10,
+                                    offset: Offset(0, 5),
+                                  ),
+                                ],
+                              ),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                                    );
+                                  },
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Center(
+                                    child: Text(
+                                      "Login",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: 0.5,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          const SizedBox(width: 15),
+
+                          // Sign Up Button
+                          Expanded(
+                            child: Container(
+                              height: 55,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Color(0xFF7165D6), width: 2),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => SignupScreen()),
+                                    );
+                                  },
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Center(
+                                    child: Text(
+                                      "Sign Up",
+                                      style: TextStyle(
+                                        color: Color(0xFF7165D6),
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: 0.5,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
-          ],
+              ),
+
+              // Bottom padding
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );

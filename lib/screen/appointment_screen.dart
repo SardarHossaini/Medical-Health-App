@@ -137,7 +137,7 @@ class AppointmentScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: 160,
+                    height: 140,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
