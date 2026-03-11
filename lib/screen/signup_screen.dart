@@ -380,12 +380,18 @@ class _SignupScreenState extends State<SignupScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        _buildSocialButton(icon: "assets/images/google.png", onTap: () {}),
+                        _buildSocialButton(
+                          icon: Icons.email,
+                          color: Colors.red[700],
+                          onTap: () {},
+                          isAsset: false,
+                        ),
                         SizedBox(width: 15),
                         _buildSocialButton(
-                          icon: "assets/images/facebook.png",
+                          icon: Icons.facebook,
+                          color: Colors.blue[700],
                           onTap: () {},
-                          isAsset: true,
+                          isAsset: false,
                         ),
                         SizedBox(width: 15),
                         _buildSocialButton(icon: Icons.apple, onTap: () {}, isAsset: false),
@@ -578,7 +584,12 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   // Social login button
-  Widget _buildSocialButton({dynamic icon, required VoidCallback onTap, bool isAsset = true}) {
+  Widget _buildSocialButton({
+    dynamic icon,
+    Color? color,
+    required VoidCallback onTap,
+    bool isAsset = true,
+  }) {
     return Container(
       width: 60,
       height: 60,
@@ -593,7 +604,9 @@ class _SignupScreenState extends State<SignupScreen> {
           onTap: onTap,
           borderRadius: BorderRadius.circular(15),
           child: Center(
-            child: isAsset ? Image.asset(icon, height: 30, width: 30) : Icon(icon, size: 35),
+            child: isAsset
+                ? Image.asset(icon, height: 30, width: 30)
+                : Icon(icon, size: 35, color: color),
           ),
         ),
       ),

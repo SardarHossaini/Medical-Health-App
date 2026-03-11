@@ -301,7 +301,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             onPressed: () {
                               // Handle Google login
                             },
-                            icon: Image.asset("assets/images/google.png", height: 30, width: 30),
+                            icon: Icon(Icons.email, color: Colors.red[700], size: 35),
                           ),
                         ),
 
